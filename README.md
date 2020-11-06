@@ -1,1 +1,195 @@
-# livck-docs
+---
+title: Installation & Usage
+---
+
+### These instructions are based on an Ubuntu 20.04 server.
+##### If you have not yet found a suitable hosting provider to host this status page, we can recommend [Hetzner Online GmbH](https://hetzner.cloud/?ref=1sCLayBw4vyG)
+
+## 1. Installing dependencies
+
+```bash
+# Update repositories list
+apt update
+
+# Install Dependencies
+apt -y install php7.4 php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} nginx supervisor
+
+# Installing Composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
+
+## 2. Download files
+The first step in this process is to create the folder where the panel will live and then move ourselves into that newly created folder. Below is an example of how to perform this operation.
+
+##### You can [download](https://livck.com/manage/licenses) the files with your purchased license.
+```bash
+mkdir -p /var/www/livck
+cd /var/www/livck
+# Move downloaded files into the folder
+# After moving the files, make sure that the storage and bootstrap have permission
+chmod -R 755 storage/* bootstrap/cache/
+```
+
+## 3. MySQL installation
+You will need a database setup and a user with the correct permissions created for that database before continuing any further. If you are unsure how to do this, please have a look at Setting up [MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04-de)
+
+## 4. Configure the application
+```bash
+cp .env.example .env
+composer install --no-dev --optimize-autoloader
+php artisan key:generate --force
+```
+
+## 5. Configure Supervisor
+
+```bash
+nano /etc/supervisor/conf.d/livck.conf
+```
+
+```bash
+# Append the following content to the livck.conf
+[program:livck-queue-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/livck/artisan queue:work
+autostart=true
+autorestart=true
+user=root
+numprocs=1
+redirect_stderr=true
+```
+
+```text
+service supervisor restart
+``` 
+
+## 6. Configure Crontab
+
+```bash
+{ crontab -l; echo "* * * * * php /var/www/livck/artisan schedule:run >/dev/null 2>&1"; } | crontab -
+```
+
+## 7. Configure Nginx 
+
+```bash
+nano /etc/nginx/sites-enabled/livck
+```
+
+```bash
+server {
+    root /var/www/livck/public;
+
+    index index.php;
+    server_name DOMAIN-NAME;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        include snippets/fastcgi-php.conf;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    listen 80;
+}
+```
+
+## 8. Check Nginx Web-Server
+
+At the end of the installation process, Ubuntu 20.04 starts Nginx. The web server should already be up and running.
+
+```bash
+systemctl status nginx
+```
+
+##### Output
+
+```bash
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2020-11-06 01:14:00 EDT; 1min 2s ago
+ Main PID: 17357 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─17357 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
+           └─17358 nginx: worker process
+```
+
+## 9. Set Environment
+
+Now we set your environment variables
+
+```bash
+# Configure your .env file in the project folder
+nano .env
+```
+Make sure that the APP_KEY is not empty (It is empty so execute -> php artisan key:gen)
+```bash
+APP_NAME="NAME OF YOUR BUSINESS"
+APP_ENV=production
+APP_KEY="this value is generated"
+APP_DEBUG=false
+APP_URL=http://yourcompany.com
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your-name-database
+DB_USERNAME=your-database-username
+DB_PASSWORD=database-password
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailer.com
+MAIL_PORT=25
+MAIL_USERNAME=username
+MAIL_PASSWORD=password
+MAIL_ENCRYPTION=tls
+
+TELEGRAM_BOT_TOKEN="your-generated-bot-token"
+```
+
+Add your license key to the license-key file
+
+```bash
+# Make sure that the license key is in a line without any spaces
+nano license-key
+```
+
+
+## 10. SSL / Certbot
+
+If you want to secure your site with an SSL from Let's Encrypt, fly through the following [tutorial](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx)
+
+## 11. Telegram-Bot Setup
+
+If you have successfully created your Telegram bot and received your bot token, you can save it in your environment variables under **TELEGRAM_BOT_TOKEN**
+- [Create Bot](https://t.me/BotFather)
+- [Get own Client Id](https://t.me/userinfobot) ***(This value is an id and is stored in the user profile)***
+
+
+## 12. Slack Setup
+
+- [Create Slack Account & Channel](https://app.slack.com/workspace-signin)
+- [Enable incomming webhooks](https://api.slack.com/messaging/webhooks) ***(This value is an url and is stored in the user profile)***
+
+## 13. Login credentials
+
+You can now call up the status page with your domain or IP
+```bash
+http://ip-address-or-domain/login
+```
+
+You should change the access data you receive as the administrator in your user profile.
+
+Your login credentials:
+- Admin
+- livvck
+
+To changing the profile password
+```bash
+http://ip-address-or-domain/manage/profile
+```
