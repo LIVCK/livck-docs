@@ -1,5 +1,5 @@
 ---
-title: Installation & Usage
+title: Test
 ---
 
 ### These instructions are based on an Ubuntu 20.04 server.
