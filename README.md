@@ -195,15 +195,15 @@ http://ip-address-or-domain/manage/profile
 ```
 
 ## 14. Settings
-#### The following setting values with their property
+#### The following setting values with their property.
 
 **Title:** <br>This value is displayed in the page title.
 <br><br>
 **Description:** <br>This value is used for Search engine optimization.
 <br><br>
-**Header Logo:** <br>This value must be a URL, but if you don't want an image on your page, you can leave it blank
-<br><br>
 **Monitor Refresh Interval:** <br>This value determines in what second intervals the page is updated.
+<br><br>
+**Header Logo:** <br>This value must be a URL, but if you don't want an image on your page, you can leave it blank
 <br><br>
 **Header Title:** <br>This value is the header title, this is only displayed if the header logo is empty.
 <br><br>
