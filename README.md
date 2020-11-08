@@ -197,38 +197,37 @@ http://ip-address-or-domain/manage/profile
 ## 14. Settings
 #### The following setting values with their property.
 
-> **Title:** This value is displayed in the page title.
-> <br><br>
-> **Description:** This value is used for Search engine optimization.
-> <br><br>
-> **Header Logo:** This value must be a URL, but if you don't want an image on your page, you can leave it blank
-> <br><br>
-> **Monitor Refresh Interval:** This value determines in what second intervals the page is updated.
-> <br><br>
-> **Header Title:** This value is the header title, this is only displayed if the header logo is empty.
-> <br><br>
-> **Header Color:** This value defines the following backgrounds:
-> - Header
-> - Alerts
->
-> **Body Color:** This value defines the body background:
-> <br><br>
-> **Element Color:** This value defines the following backgrounds:
-> - Tables
-> - Inputs
-> - Cards
->
-> **Text Color:** This value defines all of the text colors on the page.
-> <br><br>
-> **[Open Graph](https://ogp.me/):** All values that begin with og: belong to the Open Graph Protocol. <br>
-> **Whats is Open Graph?** The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
-> <br><br>
-> **Twitter:** All values starting with twitter: belong to the Twitter-Cards, these let a post with a link from your site look more informative.
-> <br><br>
-> **Keywords:** The keywords are to be given as a list, e.g. "livck, status"
-> <br><br>
-> **Robots:** The robots are to be given as a list, e.g. "index, follow"
-> <br><br>
-> **Date-Format:** The date format is made up of letters, each of which stands for a value in the date. [To build a valid format](https://www.w3.org/TR/NOTE-datetime).
-> <br><br>
-> **Monitor Timeout:** This value is given in seconds and determines how long to wait on a monitor if it takes longer to respond.
+**Title:** This value is displayed in the page title.
+<br><br>
+**Description:** This value is used for Search engine optimization.
+<br><br>
+**Header Logo:** This value must be a URL, but if you don't want an image on your page, you can leave it blank
+<br><br>
+**Monitor Refresh Interval:** This value determines in what second intervals the page is updated.
+<br><br>
+**Header Title:** This value is the header title, this is only displayed if the header logo is empty.
+<br><br>
+**Header Color:** This value defines the following backgrounds:
+- Header
+- Alerts
+**Body Color:** This value defines the body background:
+<br><br>
+**Element Color:** This value defines the following backgrounds:
+- Tables
+- Inputs
+- Cards
+
+**Text Color:** This value defines all of the text colors on the page.
+<br><br>
+**[Open Graph](https://ogp.me/):** All values that begin with og: belong to the Open Graph Protocol. <br>
+**Whats is Open Graph?** The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
+<br><br>
+**Twitter:** All values starting with twitter: belong to the Twitter-Cards, these let a post with a link from your site look more informative.
+<br><br>
+**Keywords:** The keywords are to be given as a list, e.g. "livck, status"
+<br><br>
+**Robots:** The robots are to be given as a list, e.g. "index, follow"
+<br><br>
+**Date-Format:** The date format is made up of letters, each of which stands for a value in the date. [To build a valid format](https://www.w3.org/TR/NOTE-datetime).
+<br><br>
+**Monitor Timeout:** This value is given in seconds and determines how long to wait on a monitor if it takes longer to respond.
