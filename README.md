@@ -154,6 +154,11 @@ MAIL_ENCRYPTION=tls
 TELEGRAM_BOT_TOKEN="your-generated-bot-token"
 ```
 
+Migrate all Tables
+```bash
+php artisan migrate:fresh --seed
+```
+
 ## 10. SSL / Certbot
 
 If you want to secure your site with an SSL from Let's Encrypt, fly through the following [tutorial](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx)
