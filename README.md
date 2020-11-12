@@ -135,6 +135,8 @@ APP_KEY="this value is generated"
 APP_DEBUG=false
 APP_URL=http://yourcompany.com
 
+LICENSE_KEY="XXXX-XXXX-XXXX-XXXX-XXXX"
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -151,14 +153,6 @@ MAIL_ENCRYPTION=tls
 
 TELEGRAM_BOT_TOKEN="your-generated-bot-token"
 ```
-
-Add your license key to the license-key file
-
-```bash
-# Make sure that the license key is in a line without any spaces
-nano license-key
-```
-
 
 ## 10. SSL / Certbot
 
