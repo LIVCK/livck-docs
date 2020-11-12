@@ -27,7 +27,7 @@ mkdir -p /var/www/livck
 cd /var/www/livck
 # Move downloaded files into the folder
 # After moving the files, make sure that the storage and bootstrap have permission
-chmod -R 755 storage/* bootstrap/cache/
+chmod 777 * -R
 ```
 
 ## 3. MySQL installation
