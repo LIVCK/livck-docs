@@ -50,7 +50,7 @@ nano /etc/supervisor/conf.d/livck.conf
 # Append the following content to the livck.conf
 [program:livck-queue-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/livck/artisan queue:work
+command=php /var/www/livck/artisan queue:work --queue=default,newsletter --timeout=60 --tries=255
 autostart=true
 autorestart=true
 user=root
