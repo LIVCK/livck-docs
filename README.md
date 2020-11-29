@@ -99,7 +99,12 @@ server {
 }
 ```
 
-## 8. Check Nginx Web-Server
+## 8. Check & Restart Nginx Web-Server
+
+Restart Nginx
+```bash
+systemctl restart nginx
+```
 
 At the end of the installation process, Ubuntu 20.04 starts Nginx. The web server should already be up and running.
 
