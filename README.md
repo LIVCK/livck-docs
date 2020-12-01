@@ -9,7 +9,7 @@ title: Installation & Usage
 
 ```bash
 # Update repositories list
-apt update
+apt update && apt upgrade
 
 # Install Dependencies
 apt -y install php7.4 php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} nginx supervisor
@@ -135,9 +135,7 @@ nano .env
 Make sure that the APP_KEY is not empty (It is empty so execute -> php artisan key:gen)
 ```bash
 APP_NAME="NAME OF YOUR BUSINESS"
-APP_ENV=production
 APP_KEY="this value is generated"
-APP_DEBUG=false
 APP_URL=http://yourcompany.com
 
 LICENSE_KEY="XXXX-XXXX-XXXX-XXXX-XXXX"
