@@ -233,3 +233,64 @@ http://ip-address-or-domain/manage/profile
 **Date-Format:** <br>The date format is made up of letters, each of which stands for a value in the date. [To build a valid format](https://www.w3.org/TR/NOTE-datetime).
 <br><br>
 **Monitor Timeout:** <br>This value is given in seconds and determines how long to wait on a monitor if it takes longer to respond.
+
+# Update
+
+Go into the app folder
+```bash
+cd /var/www/livck
+```
+
+Downloading the update from the download-url
+* Copy the license-key from [LIVCK](https://livck.com/manage/licenses) and replace 'YOUR-LICENSE-KEY' with your value
+```bash
+wget -O livck.zip https://livck.com/dl/YOUR-LICENSE-KEY
+```
+
+Unzip files
+* Make sure that unzip is installed on your server
+```bash
+apt install unzip # when not installed!
+```
+
+```bash
+unzip livck.zip
+```
+
+Move all update files to the main directory
+```bash
+cp LIVCK-self-hosted-* /var/www/livck -R
+```
+
+Update Composer
+```bash
+composer update
+```
+
+Update Migrations
+```bash
+php artisan migrate --force
+```
+
+Clear cache of applications
+```bash
+php artisan optimize:clear
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
