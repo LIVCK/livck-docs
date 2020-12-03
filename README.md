@@ -234,7 +234,7 @@ http://ip-address-or-domain/manage/profile
 <br><br>
 **Monitor Timeout:** <br>This value is given in seconds and determines how long to wait on a monitor if it takes longer to respond.
 
-# Update
+# 15. Update
 
 Go into the app folder
 ```bash
@@ -276,21 +276,3 @@ Clear cache of applications
 ```bash
 php artisan optimize:clear
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
