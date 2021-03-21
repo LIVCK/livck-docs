@@ -1,3 +1,6 @@
+## 1.0.6 - 2021-03-21
+- Added Incident Creator (For past failures)
+
 ## 1.0.3 - 2020-12-03
 - An updater has been added which brings the project up to date with one command
 - An version command was added
