@@ -1,3 +1,10 @@
+## 1.0.6 - 2021-03-23
+- Fixed Line-Spacing from Compose Alert Editor
+- Added collapse to monitor list (Homepage/Overview)
+- Fixed Updater (assets loading)
+- Added image uploader
+- Added positioning of newsfeed (alerts)
+
 ## 1.0.6 - 2021-03-21
 - Added Incident Creator (For past failures)
 
