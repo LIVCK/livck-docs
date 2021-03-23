@@ -23,3 +23,4 @@
 ## 1.0.0 - 2020-11-06
 Release of our software 😊
 - We have made our software sale proficient for 2020-11-06
+
