@@ -162,6 +162,11 @@ Migrate all Tables
 php artisan migrate:fresh --seed
 ```
 
+Create symlink
+```bash
+php artisan storage:link
+```
+
 ## 10. SSL / Certbot
 
 If you want to secure your site with an SSL from Let's Encrypt, fly through the following [tutorial](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx)
