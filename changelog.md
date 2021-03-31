@@ -1,3 +1,17 @@
+## v1.0.8 - 2021-03-31
+- fix table overflow (ACP)
+- added ssl-certificates checks
+- added legal redirection (imprint & privacy-policy)
+- changed style of <a> tag (added opacity on hover state)
+- added autofixer for missing configuration keys
+- added favicon-uploader
+- added preview for project-image & favicon on theme settings
+- added version view (ACP - on left-top)
+- added translations to ACP (not 100% completely)
+- centered status pill to monitor overview
+- added overall statuspill on categories
+- removed useless stuff from monitors table (ACP)
+
 ## 1.0.7 - 2021-03-23
 - Fixed Line-Spacing from Compose Alert Editor
 - Added collapse to monitor list (Homepage/Overview)
