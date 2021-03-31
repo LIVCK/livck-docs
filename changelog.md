@@ -12,6 +12,13 @@
 - added overall statuspill on categories
 - removed useless stuff from monitors table (ACP)
 
+#### important for upgrading to this version 
+add following section to config/livck.php
+```php
+'imprint_url' => 'your-domain.com/imprint',
+'privacy_policy_url' => 'your-domain.com/privacy-policy',
+```
+
 ## 1.0.7 - 2021-03-23
 - Fixed Line-Spacing from Compose Alert Editor
 - Added collapse to monitor list (Homepage/Overview)
