@@ -1,4 +1,4 @@
-## v1.0.8 - 2021-03-31
+## 1.0.8 - 2021-03-31
 - fix table overflow (ACP)
 - added ssl-certificates checks
 - added legal redirection (imprint & privacy-policy)
