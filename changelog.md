@@ -1,3 +1,8 @@
+## 1.0.9 - 2021-04-28
+- added remembering state to collapsed categories
+- added email-alerting checkbox to profile (to specify whether email downtime notifications can be sent or not)
+- added manual type to monitors (this type is for non-automated checking | only for monitors which are set manually)
+
 ## 1.0.8 - 2021-03-31
 - fix table overflow (ACP)
 - added ssl-certificates checks
