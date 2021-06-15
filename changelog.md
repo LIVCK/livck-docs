@@ -1,3 +1,28 @@
+## 1.1.2 - 2021-06-16
+- fixed sla on monitor overview (SLA was displayed in decimal)
+
+## 1.1.1 - 2021-06-16
+- fixed cleanup command (incorrect sql statements were corrected)
+
+## 1.1.0 - 2021-06-16
+- added advanced monitor check (This check, can verify if a service is really down. This works with a delay & retries which are executed via the queue. This check is also customizable)
+- added cleanup command (The command can either run itself or be automated. This will delete all incidents over 60 days - the days are also customizable)
+- fixed logo/favicon upload (The cache is now updated when a new image is uploaded)
+- fixed discord embeds (Duplicate embeds due to not finding the message)
+- fixed logo/favicon mimetypes (From now on all mimetypes are allowed to upload his logo)
+- added ip-resolver (Now you can specify with which IP resolver to access our license servers. [V4,V6])
+
+#### important for upgrading to this version 
+add following section to config/livck.php
+```php
+'ip_resolver' => 'V4',
+'advanced_monitor_check' => 'true',
+'advanced_monitor_tries' => '5',
+'advanced_monitor_delay' => '5',
+'automatic_cleanup' => 'true',
+'automatic_cleanup_range' => '60 days',
+```
+
 ## 1.0.9 - 2021-04-28
 - added remembering state to collapsed categories
 - added email-alerting checkbox to profile (to specify whether email downtime notifications can be sent or not)
