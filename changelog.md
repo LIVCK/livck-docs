@@ -1,3 +1,20 @@
+## 1.1.3 - 2021-06-18
+- Added customization of style (A box for styling the page was added to the settings site)
+- Newsletter notifications will be sent via the queue from now on
+- Newsletter input is cleared after successful sending
+- Added caching for public data
+- Added StateChangedEvent for calling updates arround the application
+- Added SQL-Indexes on tables
+- Dropped unique of sort_id in monitors (No data will be lost through the update!!)
+- Fixed route-names
+- Removed some inline styles and migrated to classes
+- Added listener for flushing data on cache (public data)
+- Fixed keywords metatag (wrong data was displayed)
+- Added style file to main path (Stored custom style)
+
+** Important for the update command **
+- Confirm at the update command that the resource files may be replaced!
+
 ## 1.1.2 - 2021-06-16
 - fixed sla on monitor overview (SLA was displayed in decimal)
 
