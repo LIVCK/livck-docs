@@ -241,6 +241,15 @@ http://ip-address-or-domain/manage/profile
 
 ## 15. Update
 
+### You have two ways to update your status page!
+
+### Way 1:
+All versions above 1.0.3 can be brought up to date with the following command.
+```bash
+cd /var/www/livck && php artisan update
+```
+
+### Way 2: (Works for all versions)
 Go into the app folder
 ```bash
 cd /var/www/livck
@@ -249,7 +258,7 @@ cd /var/www/livck
 Downloading the update from the download-url
 * Copy the license-key from [LIVCK](https://livck.com/manage/licenses) and replace 'YOUR-LICENSE-KEY' with your value
 ```bash
-wget -O livck.zip https://livck.com/dl/YOUR-LICENSE-KEY
+wget -O livck.zip https://livck.com/dl/self-hosted/YOUR-LICENSE-KEY
 ```
 
 Unzip files
