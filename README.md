@@ -39,7 +39,7 @@ Now we install the Package-Manager **Composer**, which allows the software to ob
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-## Step 3 - `Install LIVCK`
+## Step 3 - `Application Folder`
 
 We will now create a folder where the software will eventually reside
 
