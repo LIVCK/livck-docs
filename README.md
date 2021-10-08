@@ -31,7 +31,7 @@ Now we install the necessary dependencies for the software, including Php, Nginx
 apt -y install php7.4 php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} wget unzip nginx supervisor curl redis-server
 ```
 
-## Step 2.1 - `Install Composer`
+### Step 2.1 - `Install Composer`
 
 Now we install the Package-Manager **Composer**, which allows the software to obtain more of its necessary packages
 
@@ -39,7 +39,7 @@ Now we install the Package-Manager **Composer**, which allows the software to ob
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-### Step 3 - `Install LIVCK`
+## Step 3 - `Install LIVCK`
 
 We will now create a folder where the software will eventually reside
 
@@ -104,7 +104,7 @@ REDIS_HOST=127.0.0.1
 CACHE_DRIVER=redis
 ```
 
-### Step 4 - `Install LIVCK`
+## Step 4 - `Install LIVCK`
 
 Now we install the required packages for the software.
 
