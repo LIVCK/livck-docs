@@ -39,7 +39,7 @@ curl https://get.docker.com | sh
 apt -y install docker-compose
 ```
 
-### Step 3 - `Download files from LIVCK`
+## Step 3 - `Download files from LIVCK`
 
 You can find your license on the [LIVCK](https://livck.com/manage/licenses) page under your profile, copy it and paste it in the URL (Replace it with REPLACE)
 
@@ -67,7 +67,7 @@ mkdir livck && mv LIVCK-self-hosted-*/* /opt/livck
 rm LIVCK-self-hosted-* -R && rm livck.zip
 ```
 
-### Step 4 - `Configure Application`
+## Step 4 - `Configure Application`
 
 Execute the following commands to start the installation script.
 
