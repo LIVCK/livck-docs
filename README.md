@@ -1,53 +1,128 @@
 ---
-title: Installation & Usage
+title: Installation
 ---
 
 ### These instructions are based on an Ubuntu 20.04 server.
 ##### If you have not yet found a suitable hosting provider to host this status page, we can recommend [Hetzner Online GmbH](https://hetzner.cloud/?ref=1sCLayBw4vyG)
 
-## 1. Installing dependencies
+## Introduction
 
-```bash
-# Update repositories list
-apt update && apt upgrade
+**Prerequisites**
 
-# Install Dependencies
-apt -y install php7.4 php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} nginx supervisor
+A server with Ubuntu-20.04 or newer is preinstalled for this.
 
-# Installing Composer
+The default credentials of the software
+* Username: `admin@example.com`
+* Password: `livvck`
+
+## Step 1 - `Update & Upgrade`
+
+The very first thing we do is update the package lists and packages on the server so that we are up to date.
+
+```shell
+apt update && apt upgrade -y
+```
+
+## Step 2 - `Install Dependencies`
+
+Now we install the necessary dependencies for the software, including Php, Nginx & Supervisor
+
+```shell
+apt -y install php7.4 php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} wget unzip nginx supervisor curl redis-server
+```
+
+## Step 2.1 - `Install Composer`
+
+Now we install the Package-Manager **Composer**, which allows the software to obtain more of its necessary packages
+
+```shell
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-## 2. Download files
-The first step in this process is to create the folder where the panel will live and then move ourselves into that newly created folder. Below is an example of how to perform this operation.
+### Step 3 - `Install LIVCK`
 
-##### You can [download](https://livck.com/manage/licenses) the files with your purchased license.
-```bash
+We will now create a folder where the software will eventually reside
+
+```shell
 mkdir -p /var/www/livck
-cd /var/www/livck
-# Move downloaded files into the folder
-# After moving the files, make sure that the storage and bootstrap have permission
-chmod 777 * -R
 ```
 
-## 3. MySQL installation
-You will need a database setup and a user with the correct permissions created for that database before continuing any further. If you are unsure how to do this, please have a look at Setting up [MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04-de)
+### Step 3.1 - `Download files from LIVCK`
 
-## 4. Configure the application
-```bash
-cp .env.example .env
-composer install --no-dev --optimize-autoloader
-php artisan key:generate --force
+You can find your license on the [LIVCK](https://livck.com/manage/licenses) page under your profile, copy it and paste it in the URL (Replace it with REPLACE)
+
+Before you can start the download, you have to enter the IP of the server into the [IP Whitelist](https://livck.com/manage/whitelist) of LIVCK. You can find the IP in the HCloud panel, but it is enough to whitelist the IPv4.
+
+```shell
+cd /var/www/livck && wget -4 https://livck.com/dl/self-hosted/REPLACE -O livck.zip
 ```
 
-## 5. Configure Supervisor
+### Step 3.2 - `Unpacking LIVCK files`
 
-```bash
+```shell
+unzip livck.zip
+```
+
+### Step 3.3 - `Move LIVCK files to correct folder`
+
+```shell
+mv LIVCK-self-hosted-*/* . && cp LIVCK-self-hosted-*/.env.example .env
+```
+
+### Step 3.4 - `Delete unless files`
+
+```shell
+rm LIVCK-self-hosted-* -R && rm livck.zip
+```
+
+### Step 3.5 - `Configure Application`
+
+For LIVCK a database like MySQL is needed, for this you can already find a tutorial [here](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04-de).
+
+**Create a database and a user (or use the root), which we can specify in the application**
+
+```shell
+nano .env
+```
+
+You will now see this in the editor similar to the one shown below, there you can customize the name (APP_NAME) & under DB_DATABASE will be the database name you created as well as user and a password.
+Finally you only have to set your license key under LICENSE_KEY and the configuration would be done.
+
+```dotenv
+APP_NAME=LIVCK
+APP_URL=http://your-domain.com
+
+LICENSE_KEY="XXXX-XXXX-XXXX-XXXX-XXXX"
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=livck
+DB_USERNAME=root
+DB_PASSWORD="password"
+REDIS_HOST=127.0.0.1
+CACHE_DRIVER=redis
+```
+
+### Step 4 - `Install LIVCK`
+
+Now we install the required packages for the software.
+
+```shell
+composer install --no-dev --optimize-autoloader --ignore-platform-reqs && chmod -R gu+w storage/ && chmod -R guo+w storage/ && chmod -R gu+w bootstrap/cache/ && chmod -R guo+w bootstrap/cache/
+```
+
+### Step 4.1 - `Configure Supervisor`
+
+Now we configure the queue with supervisor.
+
+```shell
 nano /etc/supervisor/conf.d/livck.conf
 ```
 
-```bash
-# Append the following content to the livck.conf
+**Add the following content to the file and save it**
+
+```
 [program:livck-queue-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /var/www/livck/artisan queue:work --queue=default,newsletter --timeout=60 --tries=255
@@ -58,23 +133,38 @@ numprocs=1
 redirect_stderr=true
 ```
 
-```text
+Now restart the supervisor service
+
+```shell
 service supervisor restart
-``` 
+```
 
-## 6. Configure Crontab
+### Step 4.2 - `Configure Crontab`
 
-```bash
+Now we run the software backend on crontab.
+
+```shell
 { crontab -l; echo "* * * * * php /var/www/livck/artisan schedule:run >/dev/null 2>&1"; } | crontab -
 ```
 
-## 7. Configure Nginx 
+The return of the command is **no crontab for root** and is good!
 
-```bash
+### Step 4.3 - `Configure Nginx`
+
+Now we configure nginx (webserver).
+
+```shell
 nano /etc/nginx/sites-enabled/livck
 ```
 
-```bash
+**Edit the content you see below, there replace DOMAIN-NAME to your domain and save it**
+
+If your domain is not yet connected to the server, we would recommend you to set an A record in your DNS.
+
+Name: status (or one of your choice)
+Target: Your Server IP
+
+```
 server {
     root /var/www/livck/public;
 
@@ -99,196 +189,42 @@ server {
 }
 ```
 
-## 8. Check & Restart Nginx Web-Server
+Now restart the nginx service
 
-Restart Nginx
-```bash
-systemctl restart nginx
+```shell
+service nginx restart
 ```
 
-At the end of the installation process, Ubuntu 20.04 starts Nginx. The web server should already be up and running.
+### Step 4.4 - `Configure SSL`
 
-```bash
-systemctl status nginx
+Now we configure the ssl of the statuspage.
+
+```shell
+apt install certbot python3-certbot-nginx -y
 ```
 
-##### Output
+**Replace the status.your-domain.de and acme@your-mail.de to yours**
 
-```bash
-● nginx.service - A high performance web server and a reverse proxy server
-   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-   Active: active (running) since Mon 2020-11-06 01:14:00 EDT; 1min 2s ago
- Main PID: 17357 (nginx)
-   CGroup: /system.slice/nginx.service
-           ├─17357 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
-           └─17358 nginx: worker process
+```shell
+certbot --nginx --agree-tos -m acme@your-mail.de --domain status.your-domain.de
 ```
 
-## 9. Set Environment
+**Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access - To Secure your traffic, choose number 2!**
 
-Now we set your environment variables
+### Step 4.5 - `Migrate Database`
 
-```bash
-# Configure your .env file in the project folder
-nano .env
-```
-Make sure that the APP_KEY is not empty (It is empty so execute -> php artisan key:gen)
-```bash
-APP_NAME="NAME OF YOUR BUSINESS"
-APP_KEY="this value is generated"
-APP_URL=http://yourcompany.com
+Now we can migrate all tables
 
-LICENSE_KEY="XXXX-XXXX-XXXX-XXXX-XXXX"
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your-name-database
-DB_USERNAME=your-database-username
-DB_PASSWORD=database-password
-
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailer.com
-MAIL_PORT=25
-MAIL_USERNAME=username
-MAIL_PASSWORD=password
-MAIL_ENCRYPTION=tls
-
-TELEGRAM_BOT_TOKEN="your-generated-bot-token"
+```shell
+php artisan migrate:fresh --seed --force
 ```
 
-Migrate all Tables
-```bash
-php artisan migrate:fresh --seed
-```
+### Step 4.5 - `Storage Availability`
 
-Create symlink
-```bash
+Now we can publish the storage
+
+```shell
 php artisan storage:link
-```
-
-## 10. SSL / Certbot
-
-If you want to secure your site with an SSL from Let's Encrypt, fly through the following [tutorial](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx)
-
-## 11. Telegram-Bot Setup
-
-If you have successfully created your Telegram bot and received your bot token, you can save it in your environment variables under **TELEGRAM_BOT_TOKEN**
-- [Create Bot](https://t.me/BotFather)
-- [Get own Client Id](https://t.me/userinfobot) ***(This value is an id and is stored in the user profile)***
-
-
-## 12. Slack Setup
-
-- [Create Slack Account & Channel](https://app.slack.com/workspace-signin)
-- [Enable incomming webhooks](https://api.slack.com/messaging/webhooks) ***(This value is an url and is stored in the user profile)***
-
-## 13. Login credentials
-
-You can now call up the status page with your domain or IP
-```bash
-http://ip-address-or-domain/login
-```
-
-You should change the access data you receive as the administrator in your user profile.
-
-Your login credentials:
-- Admin
-- livvck
-
-To changing the profile password
-```bash
-http://ip-address-or-domain/manage/profile
-```
-
-## 14. Settings
-#### The following setting values with their property.
-
-**Title:** <br>This value is displayed in the page title.
-<br><br>
-**Description:** <br>This value is used for Search engine optimization.
-<br><br>
-**Monitor Refresh Interval:** <br>This value determines in what second intervals the page is updated.
-<br><br>
-**Header Logo:** <br>This value must be a URL, but if you don't want an image on your page, you can leave it blank
-<br><br>
-**Header Title:** <br>This value is the header title, this is only displayed if the header logo is empty.
-<br><br>
-**Header Color:**<br> This value defines the following backgrounds:
-- Header
-- Alerts
-
-**Body Color:** <br>This value defines the body background.<br><br>
-**Element Color:** <br>This value defines the following backgrounds:
-- Tables
-- Inputs
-- Cards
-
-**Text Color:** <br>This value defines all of the text colors on the page.
-<br><br>
-**[Open Graph](https://ogp.me/):**<br> All values that begin with og: belong to the Open Graph Protocol. <br><br>
-**Whats is Open Graph?** <br>The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
-<br><br>
-**Twitter:** <br>All values starting with twitter: belong to the Twitter-Cards, these let a post with a link from your site look more informative.
-<br><br>
-**Keywords:** <br>The keywords are to be given as a list, e.g. "livck, status"
-<br><br>
-**Robots:** <br>The robots are to be given as a list, e.g. "index, follow"
-<br><br>
-**Date-Format:** <br>The date format is made up of letters, each of which stands for a value in the date. [To build a valid format](https://www.w3.org/TR/NOTE-datetime).
-<br><br>
-**Monitor Timeout:** <br>This value is given in seconds and determines how long to wait on a monitor if it takes longer to respond.
-
-## 15. Update
-
-### You have two ways to update your status page!
-
-### Way 1:
-All versions above 1.0.3 can be brought up to date with the following command.
-```bash
-cd /var/www/livck && php artisan update
-```
-
-### Way 2: (Works for all versions)
-Go into the app folder
-```bash
-cd /var/www/livck
-```
-
-Downloading the update from the download-url
-* Copy the license-key from [LIVCK](https://livck.com/manage/licenses) and replace 'YOUR-LICENSE-KEY' with your value
-```bash
-wget -O livck.zip https://livck.com/dl/self-hosted/YOUR-LICENSE-KEY
-```
-
-Unzip files
-* Make sure that unzip is installed on your server
-```bash
-apt install unzip # when not installed!
-```
-
-```bash
-unzip livck.zip
-```
-
-Move all update files to the main directory
-```bash
-cp LIVCK-self-hosted-* /var/www/livck -R
-```
-
-Update Composer
-```bash
-composer update
-```
-
-Update Migrations
-```bash
-php artisan migrate --force
-```
-
-Clear cache of applications
-```bash
-php artisan optimize:clear
 ```
 
 
