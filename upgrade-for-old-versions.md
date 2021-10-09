@@ -52,7 +52,18 @@ php artisan migrate --force
 php artisan db:seed --class=LivckVersionUpgradeSeeder --force
 ```
 
+### Step 1.5 - `Installing Cache`
 
+```shell
+apt -y install redis-server
+```
+
+Set following Parameters to the .env file
+
+```env
+REDIS_HOST=127.0.0.1
+CACHE_DRIVER=redis
+```
 
 
 
