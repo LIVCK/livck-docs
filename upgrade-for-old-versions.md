@@ -13,7 +13,7 @@ cd /var/www
 You can find your license on the [LIVCK](https://livck.com/manage/licenses) page under your profile, copy it and paste it in the URL (Replace it with REPLACE)
 
 ```shell
-cd /var/www/livck && wget -4 https://livck.com/dl/self-hosted/REPLACE -O livck.zip
+wget -4 https://livck.com/dl/self-hosted/REPLACE -O livck.zip
 ```
 
 ### Step 1.2 - `Backup current files of livck`
