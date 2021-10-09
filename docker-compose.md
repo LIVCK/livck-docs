@@ -43,7 +43,7 @@ apt -y install docker-compose
 
 You can find your license on the [LIVCK](https://livck.com/manage/licenses) page under your profile, copy it and paste it in the URL (Replace it with REPLACE)
 
-Before you can start the download, you have to enter the IP of the server into the [IP Whitelist](https://livck.com/manage/whitelist) of LIVCK. You can find the IP in the HCloud panel, but it is enough to whitelist the IPv4.
+Before you can start the download, you have to enter the IP of the server into the [IP Whitelist](https://livck.com/manage/whitelist) of LIVCK.
 
 ```shell
 cd /opt && wget -4 https://livck.com/dl/self-hosted/REPLACE -O livck.zip
