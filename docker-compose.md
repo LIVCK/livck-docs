@@ -69,6 +69,12 @@ rm LIVCK-self-hosted-* -R && rm livck.zip
 
 ## Step 4 - `Configure Application`
 
+Go into the livck folder
+
+```shell
+cd livck
+```
+
 Execute the following commands to start the installation script.
 
 ```shell
