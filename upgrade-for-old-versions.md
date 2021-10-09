@@ -52,6 +52,10 @@ php artisan migrate --force
 php artisan db:seed --class=LivckVersionUpgradeSeeder --force
 ```
 
+```shell
+php artisan op:c && php artisan clear
+```
+
 ### Step 1.6 - `Installing Cache`
 
 ```shell
