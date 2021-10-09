@@ -52,7 +52,7 @@ php artisan migrate --force
 php artisan db:seed --class=LivckVersionUpgradeSeeder --force
 ```
 
-### Step 1.5 - `Installing Cache`
+### Step 1.6 - `Installing Cache`
 
 ```shell
 apt -y install redis-server
