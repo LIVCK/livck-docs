@@ -35,7 +35,7 @@ cp -r LIVCK-self-hosted-*/* /var/www/livck
 ### Step 1.4 - `Delete Vendor & Caches`
 
 ```shell
-rm vendor -r && rm composer.lock
+cd livck && rm vendor -r && rm composer.lock
 ```
 
 ### Step 1.5 - `Installing new version of LIVCK`
