@@ -31,7 +31,13 @@ After successfully updating the software, we should set the required rights agai
 chmod -R gu+w storage/ && chmod -R guo+w storage/ && chmod -R gu+w bootstrap/cache/ && chmod -R guo+w bootstrap/cache/
 ```
 
+## Step 3 - `Restarting the container`
 
+After the update, you should restart the container so that all changes are applied.
+
+```shell
+docker-compose restart
+```
 
 
 
