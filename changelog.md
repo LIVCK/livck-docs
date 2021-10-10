@@ -1,3 +1,24 @@
+## 1.2.32 - 2021-10-10
+- Added Pagination to monitors
+
+## 1.2.31 - 2021-10-09
+- Added Caching
+- Added API for resource crud
+- Added Code Editor for Javascript
+- Added Two-Factor Authentication
+- SLA calculation on statuspage
+- Designer for moving monitors between categories
+- Improved Alert-System (Added answering -> UI)
+- Added install script
+- Added Docker-Compose file for fast-deployment
+- Reworked the Frontend (TailwindCSS & Vuejs)
+- Added resend of verification (newsletter) 
+- Added Session-Management
+- Added Logo to some mails
+- Added Dark/Light Mode
+
+[Read Blog](https://blog.livck.com/veroffentlichung-unserer-software-aktualisierung/)
+
 ## 1.1.3 - 2021-06-18
 - Added customization of style (A box for styling the page was added to the settings site)
 - Newsletter notifications will be sent via the queue from now on
