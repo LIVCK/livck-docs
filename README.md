@@ -211,7 +211,15 @@ certbot --nginx --agree-tos -m acme@your-mail.de --domain status.your-domain.de
 
 **Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access - To Secure your traffic, choose number 2!**
 
-### Step 4.5 - `Migrate Database`
+### Step 4.5 - `Application Key`
+
+Now we can generate the app key
+
+```shell
+php artisan key:generate --force
+```
+
+### Step 4.6 - `Migrate Database`
 
 Now we can migrate all tables
 
@@ -219,7 +227,7 @@ Now we can migrate all tables
 php artisan migrate:fresh --seed --force
 ```
 
-### Step 4.5 - `Storage Availability`
+### Step 4.7 - `Storage Availability`
 
 Now we can publish the storage
 
