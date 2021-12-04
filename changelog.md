@@ -1,3 +1,14 @@
+## 1.2.33 - 2021-12-04
+- Added Pushover Notification Provider
+- Added Incident Management
+- Improved install.sh script
+- Fixed RateLimiter to API
+- Added flushing cache on forceUpdate values (e.g for designer action)
+- Added new frontend construct to category list (code/components separated)
+
+** Deprecated **
+- API v1
+
 ## 1.2.32 - 2021-10-10
 - Added Pagination to monitors
 
