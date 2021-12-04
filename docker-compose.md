@@ -78,7 +78,7 @@ cd livck
 Execute the following commands to start the installation script.
 
 ```shell
-chmod 755 install.sh
+chmod 700 install.sh
 ```
 
 ```shell
