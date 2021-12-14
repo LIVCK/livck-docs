@@ -1,3 +1,10 @@
+## 1.2.34 - 2021-12-14
+- Improved monitors load (load if category not hidden)
+- Added apperance remove action to logos
+- Improved install.sh script (added credentials and login link, check containers state)
+- Removed nginx ratelimit
+- Fix interval clear to statuspage
+
 ## 1.2.33 - 2021-12-04
 - Added Pushover Notification Provider
 - Added Incident Management
