@@ -9,7 +9,7 @@ title: Installation
 We recommend that you use the Docker-Compose stack.
 This installation is no longer supported!
 
-[Use the docker-compose Stack](https://help.livck.com/docker-compose/)
+[Use the docker-compose Stack](/docker-compose)
 :::
 
 ## Introduction
