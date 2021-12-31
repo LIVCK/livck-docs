@@ -1,5 +1,5 @@
 ---
-title: Installation via Docker-Compose
+title: Installation
 ---
 
 ### These instructions are based on an Ubuntu 20.04 server.
