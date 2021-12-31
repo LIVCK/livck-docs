@@ -1,5 +1,5 @@
 ---
-title: Installation
+title: Old Installation (Outdated)
 ---
 
 ::: warning

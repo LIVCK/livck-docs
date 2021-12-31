@@ -1,5 +1,5 @@
 ---
-title: Update Docker-Compose
+title: Update
 ---
 
 ## Step 1 - `Update LIVCK`

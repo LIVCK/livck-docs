@@ -1,5 +1,5 @@
 ---
-title: Update
+title: Update without Docker-Compose Stack
 ---
 
 ## Step 1 - `Update LIVCK`
