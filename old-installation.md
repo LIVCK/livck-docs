@@ -2,6 +2,13 @@
 title: Installation
 ---
 
+::: warning
+We recommend that you use the Docker-Compose stack.
+This installation is no longer supported!
+
+[Use the docker-compose Stack](/docker-compose)
+:::
+
 ### These instructions are based on an Ubuntu 20.04 server.
 ##### If you have not yet found a suitable hosting provider to host this status page, we can recommend [Hetzner Online GmbH](https://hetzner.cloud/?ref=1sCLayBw4vyG)
 
@@ -14,13 +21,6 @@ A server with Ubuntu-20.04 or newer is preinstalled for this.
 The default credentials of the software
 * Username: `admin@example.com`
 * Password: `livvck`
-
-::: warning
-We recommend that you use the Docker-Compose stack.
-This installation is no longer supported!
-
-[Use the docker-compose Stack](/docker-compose)
-:::
 
 ## Step 1 - `Update & Upgrade`
 
