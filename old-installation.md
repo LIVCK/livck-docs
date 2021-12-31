@@ -6,7 +6,7 @@ title: Old Installation (Outdated)
 We recommend that you use the Docker-Compose stack.
 This installation is no longer supported!
 
-[Use the docker-compose Stack](/docker-compose)
+[Use the docker-compose Stack](/)
 :::
 
 ### These instructions are based on an Ubuntu 20.04 server.
