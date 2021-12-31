@@ -10,7 +10,7 @@ This installation is no longer supported!
 :::
 
 ### These instructions are based on an Ubuntu 20.04 server.
-##### If you have not yet found a suitable hosting provider to host this status page, we can recommend [Hetzner Online GmbH](https://hetzner.cloud/?ref=1sCLayBw4vyG)
+##### If you have not yet found a suitable hosting provider to host this status page, we can recommend [Hetzner Online GmbH](https://livck.com/go/hetzner)
 
 ## Introduction
 
