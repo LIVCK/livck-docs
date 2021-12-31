@@ -4,7 +4,7 @@ title: Update Docker-Compose
 
 ## Step 1 - `Update LIVCK`
 
-If you installed the software without Docker, you've come to the right place.
+If you installed the software with the Docker-Compose Stack (install.sh), you've come to the right place.
 
 The whole thing takes a few minutes and is very easy to understand.
 
@@ -15,7 +15,7 @@ cd /opt/livck
 This step can take a few minutes
 
 ```shell
-docker-compose exec app php artisan update
+docker-compose exec app php artisan update --force
 ```
 
 Restarting the application
