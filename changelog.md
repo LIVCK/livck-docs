@@ -1,3 +1,7 @@
+---
+title: Changelog
+---
+
 ## 1.2.35 - 2021-12-31
 - Added autoupdater (Default enabled)
 - Improved install.sh
