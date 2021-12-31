@@ -1,3 +1,18 @@
+## 1.2.35 - 2021-12-31
+- Added autoupdater (Default enabled)
+- Improved install.sh
+  - Added Port-Check (80 & 443)
+  - Added whitelist check
+  - Colored error messages
+  - Added check if compose stack not running (with timeout)
+- Added theming-system
+  - Added the "Inception Theme" - A theme similar to the first layout of livck (back to the roots)
+- Fixed duration of transitions (divider dark/light switch)
+- Added Private-Page feature
+- Fixed each selects (default selected)
+- Added missing translations keys (german language)
+  
+
 ## 1.2.34 - 2021-12-14
 - Improved monitors load (load if category not hidden)
 - Added apperance remove action to logos
