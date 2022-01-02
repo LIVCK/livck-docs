@@ -28,7 +28,7 @@ apt update && apt upgrade -y
 Now we install the necessary dependencies for the software, including Docker & Docker-Compose
 
 ```shell
-apt -y install unzip wget
+apt -y install unzip wget curl
 ```
 
 ```shell
