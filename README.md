@@ -41,12 +41,14 @@ apt -y install docker-compose
 
 ## Step 3 - `Download files from LIVCK`
 
-You can find your license on the [LIVCK](https://livck.com/manage/licenses) page under your profile, copy it and paste it in the URL (Replace it with REPLACE)
+::: warning
+You can find your license on the [LIVCK](https://livck.com/manage/licenses) licenses page, **copy** the **license** and **paste** it in the **URL (Replace it with PLACEHOLDER-LICENSE)**
 
 Before you can start the download, you have to enter the IP of the server into the [IP Whitelist](https://livck.com/manage/whitelist) of LIVCK.
+:::
 
 ```shell
-cd /opt && wget -4 https://livck.com/dl/self-hosted/REPLACE -O livck.zip
+cd /opt && wget -4 https://livck.com/dl/self-hosted/PLACEHOLDER-LICENSE -O livck.zip
 ```
 
 ### Step 3.1 - `Unpacking LIVCK files`
