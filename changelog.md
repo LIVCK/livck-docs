@@ -2,6 +2,22 @@
 title: Changelog
 ---
 
+## 1.2.36 - 2022-06-01
+- The logic of the check process completely reconceptualized
+  - HTTP-Check
+    - Reworked:
+      - Incident-View
+      - Configuration of the monitor
+  - Added Incident Log (Currently only for HTTP)
+- Added new setting fields
+  - SLA hide/show on site
+  - Newsletter disable/enable subscription
+- Improved Style of Tabs
+  - Monitor / HTTP
+  - Settings
+- Added Notification-Test to Profile for testing all configured Channel
+
+
 ## 1.2.35 - 2021-12-31
 - Added autoupdater (Default enabled)
 - Improved install.sh
