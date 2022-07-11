@@ -2,6 +2,10 @@
 title: Changelog
 ---
 
+## 1.2.37 - 2022-07-11
+- Added Support for non-ssl (http) statuspages
+- Improved install.sh
+
 ## 1.2.36 - 2022-06-01
 - The logic of the check process completely reconceptualized
   - HTTP-Check
