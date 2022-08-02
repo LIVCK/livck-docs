@@ -2,6 +2,10 @@
 title: Changelog
 ---
 
+## 1.2.38 - 2022-08-02
+- Added incident-create-trigger to manual monitors
+- Improved Alert Section (Showing monitor when incident is selected)
+
 ## 1.2.37 - 2022-07-11
 - Added Support for non-ssl (http) statuspages
 - Improved install.sh
