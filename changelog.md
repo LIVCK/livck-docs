@@ -2,6 +2,9 @@
 title: Changelog
 ---
 
+## 1.2.39 - 2022-12-16
+- Replaced Google Fonts to "self-hosted" fonts
+
 ## 1.2.38 - 2022-08-02
 - Added incident-create-trigger to manual monitors
 - Improved Alert Section (Showing monitor when incident is selected)
