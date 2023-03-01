@@ -2,6 +2,9 @@
 title: Changelog
 ---
 
+## 1.2.40 - 2023-02-28
+- Fixed HTTP/Check
+
 ## 1.2.39 - 2022-12-16
 - Replaced Google Fonts to "self-hosted" fonts
 
