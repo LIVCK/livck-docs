@@ -2,6 +2,12 @@
 title: Changelog
 ---
 
+## 1.3.0 - 2023-03-07
+- [App] Upgraded to PHP 8.2 (Old versions not supported!)
+- [App] Upgraded Laravel 8 to 9
+- [Docker] Updated Docker-Image (PHP 8.2)
+- [Docker] Fixed certbot auto-renew certificates
+
 ## 1.2.40 - 2023-02-28
 - Fixed HTTP/Check
 
