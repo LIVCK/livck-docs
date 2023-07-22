@@ -1,7 +1,3 @@
----
-title: Changelog
----
-
 ## 1.3.0 - 2023-03-07
 - [App] Upgraded to PHP 8.2 (Old versions not supported!)
 - [App] Upgraded Laravel 8 to 9
