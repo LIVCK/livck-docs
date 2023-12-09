@@ -1,3 +1,33 @@
+## v1.3.2 - 2023-12-09
+- UI/UX
+  - Design Update (Input, Select, Checkboxes)
+  - License Expire Page (Prevent Empty Page on Dashboard) / Invalid Page
+  - Improved Permission/Roles Management on Member Edit
+  - Added new "Password Banner" on Member Create (Preview of the generated password)
+  - Improved Designer (Organize Categories and Monitors)
+  - Improved Dashboard (New Statistics, Incidents Timeline)
+  - Improved Apperance Upload
+  - Updated Settings Page
+  - Reorganized Sidebar Menu
+- Healthcheck Check
+  - A new check has been added for checking cronjobs or other services that should be ping a specific URL
+- Improved TCP Check
+  - Added latency (ping) to TCP Check
+- Changed Compieler from `webpack` to `vite`
+- New Settings
+  - Alerts
+    - Scheduled Alerts Display Days (Define max age for scheduled alerts to be displayed on statuspage)
+    - Alerts Display Days (Define max age for alerts to be displayed on statuspage by scheduled_at date)
+  - Shows Login Button (Show/Hide Login Button on Statuspage)
+- Drop Support for Upgrading from livck-v1.2.0 or lower
+- Improved Install-Script
+  - Added arguments to script (like ./install.sh --license=X --ipv=4 ...)
+- Added Export/Import for DB
+  - php artisan db:export {filename? : The name of the export file} (optional)
+  - php artisan db:import {filename? : The name of the import file} (optional)
+  - always stored in `storage/app/dumps` (also for imports)
+- Added Download for 2FA Recovery-Codes (Text File)
+
 ## 1.3.0 - 2023-03-07
 - [App] Upgraded to PHP 8.2 (Old versions not supported!)
 - [App] Upgraded Laravel 8 to 9
