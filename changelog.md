@@ -1,3 +1,13 @@
+## v1.3.3 - 2024-01-19
+- Added PWA `Implemented Progressive Web App (PWA) functionality, enabling the Statuspage to be installed similarly to a mobile application.`
+- Fixes
+  - Dashboard Available / Unavailable Progress Bar `Hide Zero-Values`
+  - Truncate Table `Alerts title`
+- Added Env-Vars `.env`
+  - APP_TIMEZONE `default: Europe/Berlin`
+  - APP_LOCALE `default: en`
+  - APP_LOCALE_FALLBACK `default: en`
+
 ## v1.3.2 - 2023-12-09
 - UI/UX
   - Design Update (Input, Select, Checkboxes)
