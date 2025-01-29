@@ -1,3 +1,11 @@
+## v1.3.32 - 2025-01-29
+- Request Password-Link patched
+
+## v1.3.31 - 2024-07-23
+- Fix Table Column Overflow
+- Added truncations for texts
+- Fix Blank Page on License Expiry
+
 ## v1.3.3 - 2024-01-19
 - Added PWA `Implemented Progressive Web App (PWA) functionality, enabling the Statuspage to be installed similarly to a mobile application.`
 - Fixes
