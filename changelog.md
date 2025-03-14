@@ -1,3 +1,62 @@
+# v1.4.0 - 2025-03-14
+
+## UI/UX Improvements
+- **Dashboard Enhancements:**
+    - Improved overall dashboard style.
+    - Enhanced navbar design for better usability.
+
+## New Settings
+- **Monitors:**
+    - **Automatic Incident Creation:** Option to automatically create incidents for manual monitors when their status changes to "Unavailable".
+    - **Prioritization of Unavailable Monitors:** When enabled, monitors with status "Unavailable" are displayed at the top of their category list, overriding the general sorting rules.
+
+## Discord Status Pager Updates
+- **Previous Functionality:**
+    - Status information for categories and monitors was combined into a single text message.
+- **Updated Functionality:**
+    - A dedicated bot now handles all status updates.
+    - The webhook logic is exclusively used for updates of individual monitors.
+    - The bot can be directly invited to and configured on your server.
+    - Extended features include sending alerts and maintenance updates.
+- **Open-Source Release:**
+    - The Discord-Bot is now available as an open-source project on [GitHub](https://github.com/LIVCK/livck-discord-bot).
+
+## Improved Alert System
+- **New Alert States:**
+    - INVESTIGATING
+    - IDENTIFIED
+    - OBSERVING
+    - RESOLVED
+    - ACKNOWLEDGED
+    - IN_PROGRESS
+    - UNDER_REVIEW
+    - CLOSED
+    - SCHEDULED
+- **Additional Enhancements:**
+    - Added a new alert type: "Maintenance".
+    - Introduced functionality to directly update the state of an alert.
+
+## New Theme: Eclipse
+- **Modern Design:** Eclipse brings a contemporary, modern look to the status page.
+- **Dark & Light Mode:** Seamlessly supports both dark and light mode.
+- **Clean & Pleasant Colors:** Features a refined palette that is both clean and visually appealing.
+- **Elegant Rounded Corners:** Beautifully rounded design elements add a touch of sophistication.
+- **Visual Impact:** An absolute eye-catcher that enhances the overall user experience.
+- **Additional Features:**
+    - Includes an alert update line to clearly display the history of updates.
+    - Provides a dedicated maintenance page for maintenance alerts.
+    - Features a skeleton loader for a smooth and seamless loading experience.
+
+## Added Credits Badge
+- A credits badge is now displayed in the footer of the status page.
+- The badge is only removable with the `Business` plan or higher.
+
+## Tech Stack Upgrade
+- Various underlying improvements and updates to the technology stack.
+
+
+
+
 ## v1.3.32 - 2025-01-29
 - Request Password-Link patched
 
