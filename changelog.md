@@ -1,5 +1,6 @@
 # v1.4.2 - 2025-03-18
-**When using Docker**: Please **pull** the latest image with following command and **restart** docker-compose stack: `cd /opt/livck && docker-compose pull app`
+**When using Docker**: Please **pull** the latest image with following command and **restart** docker-compose stack: 
+`cd /opt/livck && docker-compose pull app`
 
 - **Improved Performance**
   - Optimized database queries for better performance.
