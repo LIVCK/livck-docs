@@ -1,3 +1,26 @@
+# v1.4.2 - 2025-03-18
+**When using Docker**: Please **pull** the latest image with following command and **restart** docker-compose stack: `cd /opt/livck && docker-compose pull app`
+
+- **Improved Performance**
+  - Optimized database queries for better performance.
+  - Reduced the number of queries for improved efficiency.
+  - Added missing indexes & primaryKeys to improve query performance.
+  - Improved Cache Handling
+  - **Optimized Server Configuration**
+    - OPcache reconfigured
+    - PHP-FPM reconfigured
+    - php.ini optimized
+    - nginx improved rate limiting and caching
+    - MariaDB configuration added (innodb increased buffer pool size)
+- **Fixed Chart Style** (unstyled percentageChange "badge" )
+- **Fixed Eclipse Theme**
+  - Header Spacing (Y) on Mobile Devices
+  - Layout Spacing (X) on Mobile Devices
+  - Fix Empty State on maintenance & alert list page
+  - Fixed Dark/Light switch on auth pages
+- **Added Incident Update Slide**
+  - Now it's possible to update an incident's identifiedAt & resolvedAt
+
 # v1.4.0 - 2025-03-14
 
 ## UI/UX Improvements
