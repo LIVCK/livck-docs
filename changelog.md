@@ -1,3 +1,34 @@
+# v1.4.3 - 2025-06-03
+- **API v3 Performance Improvements**
+  - Improved category API endpoint
+  - Improved category <-> monitors API endpoint
+- **System Improvements**
+  - Enhanced monitor check with added chunking support
+    - Now supports chunking for large monitor lists, improving performance and reducing load times.
+  - Optimized cron execution
+  - Enhanced dashboard to incidents loading
+  - Improved data iteration in the backend calculation
+  - Fixed SLA calculation
+  - Added incident archiving for automatic cleanup
+    - Incidents are now archived instead of deleted, allowing for long-term statistics
+- **New Features**
+  - Added SMS notifications via [ClickSend](http://clicksend.com/?u=523222)
+    - Setup requires a ClickSend account and API key.
+      - Create an account at [ClickSend](http://clicksend.com/?u=523222)
+      - Top up your **account balance** to send SMS
+      - Add your credentials in the **.env** file
+        - `CLICKSEND_USERNAME`
+        - `CLICKSEND_API_KEY`
+      - Configure your **Phone Number** in the profile settings and run **"Test all configured Notification-Channels"** to verify the setup.
+  - Implemented rate limiting for SMS (throttling - intended to cost control)
+  - Added phone number to user information (for SMS notifications)
+  - Added option to enable/disable newsletter mail confirmation
+- **Technical Upgrades**
+  - Upgraded build dependencies
+  - Added custom PHP.ini configuration
+    - Increased PHP memory limit to 512MB
+  - Improved MariaDB configuration
+
 # v1.4.2 - 2025-03-18
 **When using Docker**: Please **pull** the latest image with following command and **restart** docker-compose stack: 
 `cd /opt/livck && docker-compose pull app`
