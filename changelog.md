@@ -1,3 +1,44 @@
+# v1.4.4 - 2025-10-05
+
+### Added
+- **Badge Builder** - New visual badge builder interface for creating custom status badges
+- **Uptime Calendar** - Historical uptime visualization with monthly calendar views (Eclipse theme exclusive)
+  - Feature toggle via `uptime_calendar_enabled` setting
+  - Navigation through up to 24 months of history
+  - SLA visualization with color-coded calendar days
+- **Pagination** - Added pagination to Announcements and Maintenances pages
+
+### Changed
+- **Install Script** - Updated to use `docker compose` instead of deprecated `docker-compose`
+- **Documentation** - Refactored documentation for improved clarity and organization
+  - Updated [Installation](/installation) guide
+  - Updated [upgrade flow](/upgrade) documentation
+  - Updated Resources section on homepage
+  - Added [Discord Bot](/discord-bot) documentation
+  - Added [PWA (Progressive Web App)](/pwa) documentation
+  - Added [Alerts](/alerts) feature documentation
+  - Added [Badges](/badges) feature documentation
+  - Added [Designer](/designer) feature documentation
+  - Added [Uptime Calendar](/uptime-calendar) documentation `Eclipse exclusive`
+  - Added [Discord Webhook](/discord-webhook) documentation
+  - Added [Themes](/themes) documentation
+  - Added [Notification Throttling](/notification-throttling) documentation
+  - Added [Permissions](/permissions) documentation
+  - Added [Users & Roles](/users-and-roles) documentation
+  - Added [Private Page](/private-page) documentation
+  - Fixed MariaDB logo display in dark mode
+
+### Improved
+- **Caching** - Improved cache TTL (Time To Live) configurations for better performance
+- **Database** - Improved database modes with strict mode enforcement
+- **SLA Calculation** - Optimized SLA calculation performance
+- **Eager Loading** - Improved eager loads for Incidents to reduce database queries
+- **License Check** - Improved license validation with better error handling
+
+### Fixed
+- **N+1 Issues** - Fixed database N+1 query issues for improved performance
+- **File Upload Validation** - Added missing validation for file uploads in appearance settings
+
 # v1.4.3 - 2025-06-03
 - **API v3 Performance Improvements**
   - Improved category API endpoint
