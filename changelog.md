@@ -1,6 +1,5 @@
 # v1.4.5 - 2026-02-24
 
-<Note>
 > **⚠️ Important: After updating, you must restart your Docker stack for all changes to take effect:**
 > ```bash
 > cd /opt/livck && docker compose down && docker compose up -d
@@ -9,7 +8,6 @@
 > ```bash
 > cd /opt/livck && docker compose exec app php artisan update --force-pull --force
 > ```
-</Note>
 
 ### Added
 - **Timezone Support** - Users and public visitors can now select their preferred timezone
