@@ -1,5 +1,7 @@
 # v1.4.5 - 2026-02-24
-
+<Note>
+test
+</Note>
 > **⚠️ Important: After updating, you must restart your Docker stack for all changes to take effect:**
 > ```bash
 > cd /opt/livck && docker compose down && docker compose up -d
