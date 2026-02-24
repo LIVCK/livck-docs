@@ -1,3 +1,83 @@
+# v1.4.5 - 2026-02-24
+
+> **⚠️ Important: After updating, you must restart your Docker stack for all changes to take effect:**
+> ```bash
+> cd /opt/livck && docker compose down && docker compose up -d
+> ```
+> If the update didn't apply correctly, you can force a re-run:
+> ```bash
+> cd /opt/livck && docker compose exec app php artisan update --force-pull --force
+> ```
+
+### Added
+- **Timezone Support** - Users and public visitors can now select their preferred timezone
+  - All dates and times across the platform are timezone-aware
+  - New DateTime picker in Alert and Incident forms
+- **Maintenance Windows** - Schedule and track planned maintenance with automatic start/end handling
+  - Dedicated maintenance alert type with automatic state transitions
+- **Sticky Alert Banners** - Display persistent announcements on your status page – always visible, stackable
+  - Configurable banner display in alert management
+- **PDF Attachments** - Attach PDF documents to alerts (e.g. for RCA reports or documentation)
+  - Upload and manage files directly in alert forms
+- **Alert Templates** - Create reusable templates for recurring alert types
+  - Template selection when creating alerts
+  - Default templates included – your existing customizations won't be overwritten
+- **Alert Enhancements**
+  - Link alerts to specific monitors
+  - Schedule alerts with end date and duration
+  - Active alert badges visible on monitor list entries
+  - Affected services display on alert pages
+- **Newsletter Improvements**
+  - Monitor-specific subscriptions – subscribers choose which services to follow
+  - Preference management page for subscribers
+  - Import/Export for subscribers (CSV & JSON)
+  - Locale support and manage-preferences links in emails
+- **Localization** - Multi-language support for alerts and status pages
+  - Language tabs in alert creation and editing
+  - Locale switcher on public status pages
+  - Automatic language fallback
+- **Display Status** - Override the displayed status of a monitor with a custom message
+  - Improved incident bar colors based on manual overrides
+- **Demo Mode** - Built-in demo system for showcase environments
+- **License System** - New license management (no action required)
+- **Powered by LIVCK** - Optional badge for paid customers
+- **Bulk Delete** - Bulk delete functionality across all list pages
+- **Status Icon Legend** - Visual legend on status pages explaining status icons
+
+### Changed
+- **Dashboard** - Completely redesigned dashboard with improved layout, KPI cards, and quick actions
+- **Eclipse Theme** - Set as default theme with updated color palette (zinc tones) and smooth view transitions
+  - We're focusing exclusively on `Eclipse` for now to ensure every feature gets the quality it deserves. Multi-theme support may return in a future update
+
+### Improved
+- **Performance** - Significant speed improvements across the platform
+  - Reduced API response times by eliminating redundant database queries
+  - Improved notification dispatch for large subscriber lists
+  - SLA calculation limited to 90-day window for faster loading
+  - Settings cached by default for faster page loads
+- **Upgrade Process**
+  - Automatic recovery when updates are interrupted mid-process
+  - Cache is now cleared automatically after version upgrades
+  - Improved handling of invalid data during timezone conversion
+- **UI/UX**
+  - Improved flash messages across settings and monitoring pages
+  - Adjusted title visibility and layout components
+  - Updated form layouts and components
+  - Refreshed Roles management page
+  - Updated tooltip and CSS styles
+
+### Fixed
+- **Caching** - Fixed an issue where cached values could be computed twice
+- **SSL Monitoring** - Corrected notification handling in SSL certificate observer
+- **Monitor Checks** - Improved error handling in monitor cron job
+- **Alerts** - Improved reliability of alert loading and error logging
+- **API** - Fixed route model binding on V2 API routes
+- **Modal** - Fixed z-index and dark mode contrast issues
+- **Theme** - Ensured Eclipse theme applies correctly to all public pages
+- **Sessions** - Fixed authentication issues in development environments
+- **Deployment** - Improved build verification and cleanup of legacy assets
+
+
 # v1.4.4 - 2025-10-05
 
 ### Added
