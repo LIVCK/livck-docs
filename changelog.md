@@ -1,12 +1,12 @@
 # v1.4.5 - 2026-02-24
 
-> **⚠️ Important: After updating, you must restart your Docker stack for all changes to take effect:**
+> **⚠️ Important: Please use the following command to update livck:**
 > ```bash
-> cd /opt/livck && docker compose down && docker compose up -d
+> cd /opt/livck && curl -fsSL https://get.livck.com | bash
 > ```
 > If the update didn't apply correctly, you can force a re-run:
 > ```bash
-> cd /opt/livck && docker compose exec app php artisan update --force-pull --force
+> cd /opt/livck && curl -fsSL https://get.livck.com | bash -s -- --force
 > ```
 
 ### Added
