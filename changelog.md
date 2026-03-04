@@ -1,3 +1,22 @@
+# v1.4.6 - 2026-03-04
+
+### Added
+- **Alert Bulk State Update** - Change the state of multiple alerts at once directly from the alert list
+- **Alert List Filters** - Filter alerts by type and state with a clean sidebar filter panel
+
+### Improved
+- **Newsletter Manage** - Language switcher on the subscriber preferences page to manage locales independently
+- **Alert Answers** - Service name placeholders are now correctly resolved in the answer create page title
+- **Search** - Existing URL filter parameters are preserved when using the search input
+
+### Fixed
+- **Newsletter Delivery** - Fixed announcements not reaching subscribers with custom monitor preferences
+    - Curated subscribers now correctly receive global announcements that have no monitors assigned
+    - `alert_types` filter is now consistently applied to all subscribers, including those without monitor preferences
+- **Newsletter Security** - Manage preferences page no longer exposes full monitor configuration (tokens, ports, addresses)
+- **Mail Notifications** - Email header now correctly uses the light-mode logo instead of the dark-mode variant
+- **Mail Notifications** - Alert placeholder values (e.g. `{{service_name}}`) are now rendered in notification emails
+
 # v1.4.5 - 2026-02-24
 
 > **⚠️ Important: Please use the following command to update livck:**
