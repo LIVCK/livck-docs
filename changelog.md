@@ -2,6 +2,8 @@
 
 ### Fixed
 - **Incident Day Overlap** - Fixed lazy loading violation in `incident:overlap` command that prevented incidents from being split at midnight, causing monitors to remain stuck in offline state and incorrect SLA calculations
+- **Newsletter Verification Email** - Fixed missing "Verify E-Mail" button in newsletter subscription emails - the manage preferences action was overwriting the verify action, making it impossible for subscribers to confirm their email
+- **Newsletter Verification Email i18n** - Added missing German translations for "Verify E-Mail" and the manage preferences hint in the verification email
 
 # v1.4.6 - 2026-03-04
 
