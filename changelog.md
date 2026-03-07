@@ -1,3 +1,8 @@
+# v1.4.7 - 2026-03-07
+
+### Fixed
+- **Incident Day Overlap** - Fixed lazy loading violation in `incident:overlap` command that prevented incidents from being split at midnight, causing monitors to remain stuck in offline state and incorrect SLA calculations
+
 # v1.4.6 - 2026-03-04
 
 ### Added
