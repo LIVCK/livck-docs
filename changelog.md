@@ -1,3 +1,14 @@
+# v1.4.8 - 2026-03-17
+
+### Added
+- **API Token Support for Private Pages** - Private status pages can now be accessed via the API using a Bearer token
+    - Discord Bot subscriptions support an optional LIVCK API token per subscription
+    - Set, update, or remove the token directly via `/livck edit` ? "? LIVCK API Token"
+    - Multiple subscriptions on the same statuspage can use different access levels
+
+### Improved
+- **License Check** - Refactored license validation
+
 # v1.4.7 - 2026-03-07
 
 ### Fixed
