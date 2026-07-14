@@ -1,3 +1,34 @@
+# v1.5.0 - 2026-07-09
+
+A big **stability and security** update. This release fixes a range of issues — several of which only showed up on installations that have been running and upgraded for a while — and makes the whole app more robust. It's a safe upgrade with no breaking changes.
+
+### Fixed
+- **Creating Manual & HealthCheck monitors** - On installations that were upgraded from an older version, adding a Manual or HealthCheck monitor could fail. This now works reliably on every install.
+- **HealthCheck heartbeats on private status pages** - When a status page was set to private, external heartbeat check-ins were being turned away, which could wrongly show a healthy service as offline. They now come through as expected.
+- **Backup & restore** - Exporting and importing your data works reliably again, and every import now creates a safety copy of your current data before making any changes.
+- **Blank page after clearing a branding field** - Leaving a branding field (such as the title, logo or favicon) empty could make the entire app show a blank page. It now handles this gracefully.
+- **Uptime (SLA) accuracy** - Uptime percentages are now calculated correctly — an outage just before the start of a reporting period is no longer counted against the wrong timeframe.
+- **HTTP monitors without specific status codes** - An HTTP monitor with no accepted status codes configured now correctly treats a normal response as "available".
+- **HealthCheck interval in hours** - The check now respects whether the interval is set in minutes or hours.
+- **Maintenances without an end time** - Older maintenance windows that never ended kept their monitors stuck on "maintenance". These are now closed automatically so the monitors return to normal.
+- **Automatic data cleanup** - The scheduled cleanup of old data no longer leaves records behind.
+- **Saving your profile** - Saving your profile no longer fails in certain cases and keeps your selected language.
+- **Public status page** - Fixed rare errors when loading the public status page and its announcements.
+- **Setups without Redis** - Installations using the standard cache no longer run into an error when a monitor or alert changes.
+- **Uptime calendar** - The monthly average now counts only the days that have already passed, so the current month isn't watered down by upcoming days.
+- **Interface loading** - Fixed a build issue that could stop the interface from loading correctly.
+
+### Security
+- **Stricter permission checks** - Team members without the right permissions can no longer give themselves higher roles, and the Super Admin account and role are protected from changes by others.
+- **Browser sessions** - Viewing and ending other users' sessions now requires the appropriate permission.
+- **Logo & image uploads** - Only real image files are accepted (scripts and SVG are blocked), and removing an image can no longer affect files outside its folder.
+- **Settings** - Overly long values are now rejected cleanly instead of causing an error.
+
+### Improved
+- **Easier, safer self-hosting** - The install, update and deployment scripts are more robust and no longer risk producing an incomplete build.
+- **Faster dashboard** - The dashboard chart now loads on demand, so the page opens quicker.
+- **More reliable overall** - This release adds a large amount of automated testing behind the scenes — including full browser tests of the main admin flows — to catch problems before they reach you.
+
 # v1.4.8 - 2026-03-17
 
 ### Added
