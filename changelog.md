@@ -1,3 +1,10 @@
+# v1.5.1 - 2026-07-14
+
+A **small security fix** on top of 1.5.0. Safe upgrade with no breaking changes.
+
+### Security
+- **Hidden categories stay hidden on the public API** - Categories marked "Hide from Statuspage" (and the monitors inside them) were still listed by the older public API. They are now left out of every public listing, and asking for such a monitor directly returns "not found" instead of its status and history.
+
 # v1.5.0 - 2026-07-09
 
 A big **stability and security** update. This release fixes a range of issues — several of which only showed up on installations that have been running and upgraded for a while — and makes the whole app more robust. It's a safe upgrade with no breaking changes.
